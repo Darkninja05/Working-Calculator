@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+      width: 300px;
+      background-color: #191B28;
+      margin: 0 auto;
+      border: 1px solid #191B28;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 15px;
+      border: 1px solid #191B28;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 5px;
+    }
+
+    .C {
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #FC0067;
+      border-radius: 5px;
+      background-color: #FC0067;
+      margin-bottom: 10px;
+    }
+
+    .Equal {
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #FC0067;
+      border-radius: 5px;
+      background-color: #FC0067;
+      margin-bottom: 10px;
+    }
+
+    .num {
+      color: white;
+      padding: 10px;
+      width: 83px;
+      font-size: 16px;
+      border: 1px solid #191B28;
+      border-radius: 5px;
+      background-color: #65268F;
+      margin-bottom: 10px;
+    }
+
+    .equa {
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #191B28;
+      border-radius: 5px;
+      background-color: #65268F;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <button class="C" onclick="clearDisplay()">C</button>
+    <div class="buttons">
+      <button class="num" onclick="appendToDisplay('1')">1</button>
+      <button class="num" onclick="appendToDisplay('2')">2</button>
+      <button class="num" onclick="appendToDisplay('3')">3</button>
+      <button class="equa" onclick="appendToDisplay('/')">/</button>
+      <button class="num" onclick="appendToDisplay('4')">4</button>
+      <button class="num" onclick="appendToDisplay('5')">5</button>
+      <button class="num" onclick="appendToDisplay('6')">6</button>
+      <button class="equa" onclick="appendToDisplay('-')">-</button>
+      <button class="num" onclick="appendToDisplay('7')">7</button>
+      <button class="num" onclick="appendToDisplay('8')">8</button>
+      <button class="num" onclick="appendToDisplay('9')">9</button>
+      <button class="equa" onclick="appendToDisplay('+')">+</button>
+      <button class="num" onclick="appendToDisplay('.')">.</button>
+      <button class="num" onclick="appendToDisplay('0')">0</button>
+      <button class="Equal" onclick="calculateResult()">=</button>
+      <button class="equa" onclick="appendToDisplay('*')">*</button>
+    </div>
+  </div>
+
+  <script>
+    function appendToDisplay(value) {
+      document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
+
+    function calculateResult() {
+      try {
+        document.getElementById('display').value = eval(document.getElementById('display').value);
+      } catch (error) {
+        document.getElementById('display').value = 'Error';
+      }
+    }
+  </script>
+</body>
+
+</html>
